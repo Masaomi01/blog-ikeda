@@ -5,7 +5,7 @@
     .tabs_item
       タイムライン
   - @articles.each do |article|
-    = render 'article', article: article
+    = render 'commons/article', article: article
   = link_to new_article_path do
     .float_btn
       %i.fa.fa-plus
