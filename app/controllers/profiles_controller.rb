@@ -26,7 +26,8 @@ before_action :authenticate_user!
             :introduction,
             :gender,
             :birthday,
-            :subscribed
+            :subscribed,
+            :avatar
         )
     end
 end
