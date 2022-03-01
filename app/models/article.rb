@@ -14,6 +14,8 @@
 #  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
+  has_one_attached :eyecatch
+
   validates :title, presence: true
   validates :title, length: { minimum: 2, maximum: 100 }
   validates :title, format: { with: /\A(?!@)/ }
@@ -36,8 +38,11 @@ class Article < ApplicationRecord
     user.display_name
   end
 
-  private
+  def like_count
+    likes.count
+  end
 
+  private
   def validate_title_and_content_length
     char_count = title.length + content.length
     errors.add(:content, '１００文字以上で！！  ') unless char_count > 10
